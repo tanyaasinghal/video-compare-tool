@@ -374,7 +374,7 @@ function App() {
         navigatePair(-1);
       }
 
-      if (e.code === "KeyQ") {
+      if (e.code === "KeyW") {
         e.preventDefault();
         syncVideos();
       }
@@ -396,29 +396,29 @@ function App() {
   return (
     <div
       style={{
-        padding: "40px",
+        padding: "0px",
         background: "#0f172a",
-        minHeight: "100vh",
+        height: "100vh",
+        overflow: "hidden",
         color: "white",
         fontFamily: "Arial, sans-serif",
       }}
     >
-      <h1
+      <div
         style={{
-          color: "white",
-          marginBottom: "30px",
-          fontSize: "48px",
+          fontSize: "20px",
           fontWeight: "700",
+          marginBottom: "10px",
         }}
       >
         Video Compare Tool
-      </h1>
+      </div>
 
       <div
         style={{
           display: "flex",
-          gap: "20px",
-          marginTop: "20px",
+          gap: "10px",
+          marginTop: "5px",
         }}
       >
         <button
@@ -440,67 +440,6 @@ function App() {
         </button>
       </div>
 
-      <div
-        style={{
-          marginTop: "30px",
-          background: "#1e293b",
-          padding: "20px",
-          borderRadius: "12px",
-          color: "white",
-        }}
-      >
-        <h3>Folder Status</h3>
-
-        <p>
-          Model A Videos:{" "}
-          {modelAFiles.length}
-        </p>
-
-        <p>
-          Model B Videos:{" "}
-          {modelBFiles.length}
-        </p>
-
-        <p>
-          Total Pairs:{" "}
-          {videoPairs.length}
-        </p>
-      </div>
-
-      {/* <div
-        style={{
-          marginTop: "30px",
-        }}
-      >
-        <h2
-          style={{
-            color: "white",
-            marginBottom: "20px",
-            fontSize: "32px",
-            fontWeight: "600",
-          }}
-        >
-          Video Pairs
-        </h2>
-
-        {videoPairs.map(
-          (pair, index) => (
-            <div
-              key={pair.id}
-              style={{
-                background: "#334155",
-                padding: "16px",
-                borderRadius: "8px",
-                marginBottom: "10px",
-                fontSize: "18px",
-                fontWeight: "500",
-              }}
-            >
-              {pair.id}
-            </div>
-          )
-        )}
-      </div> */}
       {isTranscoding && (
         <div
           style={{
@@ -517,33 +456,29 @@ function App() {
       )}
       <div
         style={{
-          marginTop: "30px",
-          fontSize: "24px",
-          fontWeight: "700",
+          marginTop: "10px",
+          fontSize: "16px",
+          fontWeight: "600",
         }}
       >
-        Current Pair:
-        {" "}
+        Pair {currentPairIndex + 1}
+        /
+        {videoPairs.length}
+
+        {" | "}
+
         {
-          videoPairs[
-            currentPairIndex
-          ]?.id
+          videoPairs[currentPairIndex]
+            ?.id
         }
       </div>
       <div
         style={{
-          fontSize: "20px",
-          marginTop: "10px",
-        }}
-      >
-        Pair {currentPairIndex + 1} / {videoPairs.length}
-      </div>
-      <div
-        style={{
           display: "flex",
-          gap: "20px",
-          marginTop: "40px",
+          gap: "10px",
+          marginTop: "10px",
           width: "100%",
+          height: "calc(100vh - 120px)",
         }}
       >
         <div
@@ -551,13 +486,7 @@ function App() {
             flex: 1,
           }}
         >
-          <h3
-            style={{
-              marginBottom: "10px",
-            }}
-          >
-            Model A
-          </h3>
+
 
           <video
             key={`left-${currentPairIndex}`}
@@ -577,10 +506,9 @@ function App() {
             }
             style={{
               width: "100%",
-              height: "80vh",
+              height: "92vh",
               objectFit: "contain",
-              borderRadius: "10px",
-              background: "black",
+              background: "#000",
             }}
           />
         </div>
@@ -590,13 +518,6 @@ function App() {
             flex: 1,
           }}
         >
-          <h3
-            style={{
-              marginBottom: "10px",
-            }}
-          >
-            Model B
-          </h3>
 
           <video
             key={`right-${currentPairIndex}`}
@@ -616,10 +537,9 @@ function App() {
             }
             style={{
               width: "100%",
-              height: "80vh",
+              height: "92vh",
               objectFit: "contain",
-              borderRadius: "10px",
-              background: "black",
+              background: "#000",
             }}
           />
         </div>
