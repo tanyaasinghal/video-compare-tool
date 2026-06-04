@@ -40,6 +40,9 @@
   "build": {
     "appId": "com.techatplay.videocompare",
     "productName": "Video Compare Tool",
+    "asarUnpack": [
+      "**/node_modules/ffmpeg-static/**"
+    ],
     "directories": {
       "output": "release"
     },
