@@ -1,7 +1,7 @@
 {
   "name": "video-compare-tool",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "electron/main.cjs",
   "type": "module",
   "description": "Video comparison tool for model output review",
@@ -50,6 +50,14 @@
     ],
     "win": {
       "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.video"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility"
     }
   }
 }
